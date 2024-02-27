@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "448594998289",
+    "project_id": "mata-sclass06",
+    "storage_bucket": "mata-sclass06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448594998289:android:61cc2d645a71811bcaadb0",
+        "android_client_info": {
+          "package_name": "com.class_06"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrOncGpoOjwLjRLZcRExLqXb_ncDkt4FM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
