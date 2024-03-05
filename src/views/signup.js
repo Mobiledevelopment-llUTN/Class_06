@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { SafeAreaView } from "react-native-safe-area-context";
 import COLORS from '../constants/colors';
 import Button from '../components/Button';
+import RegisterUser from '../components/users/fb_Registeruser';
 
 const SignUp = ({ navigation }) => {
     const [isPasswordShown, setIsPasswordShown] = useState(false);
@@ -27,6 +28,7 @@ const SignUp = ({ navigation }) => {
                 </View>
 
                 <View style={{ marginBottom: 12 }}>
+                <RegisterUser/>
                     <Text style={{
                         fontSize: 16,
                         fontWeight: 400,
