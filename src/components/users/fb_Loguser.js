@@ -20,6 +20,7 @@ const LogoutUser = () => {
 
   return (
     <View>
+      <Text>Close User Session</Text>
       <Text>{estado}</Text>
     </View>
   );
