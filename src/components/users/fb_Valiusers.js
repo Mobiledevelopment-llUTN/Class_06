@@ -12,9 +12,11 @@ const ValiUser = props => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function onAuthStateChanged(user) {
     setUser(user);
+    console.log(user);
     if (initializing) {
       setInitializing(false);
     }
+
   }
 
   useEffect(() => {
@@ -36,7 +38,7 @@ const ValiUser = props => {
 
   return (
     <View>
-      <Text>Welcome {user.email}</Text>
+      <Text>Welcome {user.uid}</Text>
     </View>
   );
 };

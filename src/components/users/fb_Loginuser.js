@@ -3,17 +3,22 @@ import {View, Text,Image , Pressable, TextInput, TouchableOpacity} from 'react-n
 import auth from '@react-native-firebase/auth';
 import COLORS from '/Users/sebastianmataortega/Desktop/reactProjects/class_06/src/constants/colors.js';
 import Button from '/Users/sebastianmataortega/Desktop/reactProjects/class_06/src/components/Button.js';
+import ValiUser from '../users/fb_Valiusers';
 
-const LoginUser = () => {
+const LoginUser = ({onLoginSuccess}) => {
   const [estado, setEstado] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
   const autenticar = async () => {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        console.log('User is signed in!');
         setEstado('User is signed in!');
+        setEmail('');
+        setPassword('');
+        onLoginSuccess(estado);
+
       })
       .catch(error => {
         if (error.code === 'auth/invalid-credential') {
@@ -106,6 +111,7 @@ const LoginUser = () => {
                     onPress={autenticar}
                 />
       <Text>{estado}</Text>
+      <ValiUser/>
     </View>
   );
 };

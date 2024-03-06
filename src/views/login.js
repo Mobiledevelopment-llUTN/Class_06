@@ -1,13 +1,17 @@
 import { View, Text, Image , Pressable, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from "react-native-safe-area-context";
-import ValiUser from '../components/users/fb_Valiusers';
 import LoginUser from '../components/users/fb_Loginuser';
 import COLORS from '../constants/colors';
 import Button from '../components/Button';
 
 const Login = ({ navigation }) => {
-
+    const handleLoginSuccess = (estado) => {
+    if (estado === 'User is signed in!') {
+      // Puedes realizar otras acciones, como navegar a otra pantalla.
+      console.log('Entro...')
+    }
+  };
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
             <View style={{ flex: 1, marginHorizontal: 22 }}>
@@ -28,9 +32,7 @@ const Login = ({ navigation }) => {
 
                 </View>
 
-                <LoginUser/>
-
-
+                <LoginUser onLoginSuccess={handleLoginSuccess} />
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 20 }}>
                     <View
                         style={{

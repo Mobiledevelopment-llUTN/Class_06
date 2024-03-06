@@ -9,7 +9,8 @@ const RegisterUser = () => {
   const [estado, setEstado] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [job, setJob] = useState();
+  const [id, setId] = useState();
+  const [age, setAge] = useState(0);
   const [name, setName] = useState();
   const registrar = async () => {
     auth()
@@ -17,11 +18,13 @@ const RegisterUser = () => {
       .then(() => {
         // Register data into users collection
         const user = auth().currentUser;
-        db().collection('users').doc(user.uid).set({
-          iduser: user.uid,
-          name: name,
-          email: email,
-          job: job,
+
+        db().collection('estudiantes').doc(user.uid).set({
+          idEstudiante: id,
+          correo: email,
+          Nombre: name,
+          Edad: parseInt(age),
+          rol: 'estudiante'
         });
 
         // Print the user state
@@ -108,7 +111,7 @@ const RegisterUser = () => {
                         fontSize: 16,
                         fontWeight: 400,
                         marginVertical: 8
-                    }}>Job Title</Text>
+                    }}>Identification</Text>
 
                     <View style={{
                         width: "100%",
@@ -121,14 +124,44 @@ const RegisterUser = () => {
                         paddingLeft: 22
                     }}>
                         <TextInput
-                            placeholder='Enter your Current Job'
+                            placeholder='Enter your Identification'
                             placeholderTextColor={COLORS.black}
                             keyboardType='text'
                             style={{
                                 width: "100%"
                             }}
-                            value={job}
-                            onChangeText={(text) => setJob(text)}
+                            value={id}
+                            onChangeText={(text) => setId(text)}
+                        />
+                    </View>
+                </View>
+                <View style={{ marginBottom: 12 }}>
+                    <Text style={{
+                        fontSize: 16,
+                        fontWeight: 400,
+                        marginVertical: 8
+                    }}>Age</Text>
+
+                    <View style={{
+                        width: "100%",
+                        height: 48,
+                        borderColor: COLORS.black,
+                        borderWidth: 1,
+                        borderRadius: 8,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        paddingLeft: 22
+                    }}>
+                        <TextInput
+                            placeholder='Enter your Age'
+                            placeholderTextColor={COLORS.black}
+                            keyboardType='text'
+                            style={{
+                                width: "100%"
+                            }}
+                            keyboardType="numeric"
+                            value={age}
+                            onChangeText={(text) => setAge(text)}
                         />
                     </View>
                 </View>
