@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const ViewEstudiante = ({ navigation }) => {
     <View>
-
+        <Text>View Estudiante</Text>
     </View>
 };
 

@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {View, Text,Image , Pressable, TextInput, TouchableOpacity} from 'react-native';
 import auth from '@react-native-firebase/auth';
+import {AuthContext} from '/Users/sebastianmataortega/Desktop/reactProjects/class_06/src/context/AuthContext';
 import COLORS from '/Users/sebastianmataortega/Desktop/reactProjects/class_06/src/constants/colors.js';
 import Button from '/Users/sebastianmataortega/Desktop/reactProjects/class_06/src/components/Button.js';
-import ValiUser from '../users/fb_Valiusers';
 
-const LoginUser = ({onLoginSuccess}) => {
+const LoginUser = () => {
+  const{login} = useContext(AuthContext);
   const [estado, setEstado] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -15,9 +16,9 @@ const LoginUser = ({onLoginSuccess}) => {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         setEstado('User is signed in!');
+        console.log(estado);
         setEmail('');
         setPassword('');
-        onLoginSuccess(estado);
 
       })
       .catch(error => {
@@ -108,10 +109,8 @@ const LoginUser = ({onLoginSuccess}) => {
                         marginTop: 18,
                         marginBottom: 4,
                     }}
-                    onPress={autenticar}
+                    onPress={() => {login (), autenticar}}
                 />
-      <Text>{estado}</Text>
-      <ValiUser/>
     </View>
   );
 };

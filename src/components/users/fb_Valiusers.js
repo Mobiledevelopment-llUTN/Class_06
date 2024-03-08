@@ -5,14 +5,12 @@ import auth from '@react-native-firebase/auth';
 const ValiUser = props => {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
-
   const [user, setUser] = useState();
 
   // Handle user state changes
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function onAuthStateChanged(user) {
     setUser(user);
-    console.log(user);
     if (initializing) {
       setInitializing(false);
     }
