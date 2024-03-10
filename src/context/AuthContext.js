@@ -5,12 +5,13 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(false);
     const [userToken, setUserToken] = useState(null);
-    const [id, setId] = useState([]);
+    const [id, setId] = useState('');
 
     const login = (identifier) => {
     setUserToken('N#r%$57');
     setIsLoading(false);
     setId(identifier);
+    console.log(identifier);
     }
 
     const logout = () => {

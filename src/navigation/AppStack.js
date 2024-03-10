@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
     return (
-    <Stack.Navigator initialRouteName='Estudiantes'>
+    <Stack.Navigator initialRouteName='Profesores'>
         <Stack.Screen
           name="Estudiantes"
           component={ViewEstudiante}
@@ -18,7 +18,7 @@ const AppStack = () => {
           }}
         />
         <Stack.Screen
-          name="ViewProfesor"
+          name="Profesores"
           component={ViewProfesor}
           options={{
             headerShown: false

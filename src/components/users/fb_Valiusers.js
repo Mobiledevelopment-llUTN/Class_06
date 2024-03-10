@@ -12,7 +12,7 @@ const ValiUser = props => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function onAuthStateChanged(user) {
     setUser(user);
-     login(user);
+     login(user.uid);
     if (initializing) {
       setInitializing(false);
     }

@@ -4,22 +4,24 @@ import firestore from '@react-native-firebase/firestore';
 import {AuthContext} from '/Users/sebastianmataortega/Desktop/reactProjects/class_06/src/context/AuthContext';
 import UserInfoStyles from '/Users/sebastianmataortega/Desktop/reactProjects/class_06/src/styles/userInfoStyles.js';
 
+
 function Estudiantes({}){
   const [loading, setLoading] = useState(true); // Set loading to true on component mount
   const [estudiantes, setEstudiantes] = useState([]); // Initial empty array of users
+  const [ident, setIdent] = useState();
   const{id} = useContext(AuthContext);
+
   useEffect(() => {
-    console.log(id);
     const subscriber = firestore()
       .collection('estudiantes')
-      .doc(id.uid)
+      .doc(id)
       .onSnapshot(documentSnapshot => {
         setEstudiantes(documentSnapshot.data());
       });
 
     // Unsubscribe from events when no longer in use
     return () => subscriber();
-  }, [id.uid]);
+  }, [id]);
 
   return(
     <SafeAreaView>
