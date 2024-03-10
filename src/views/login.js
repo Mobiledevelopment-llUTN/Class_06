@@ -4,7 +4,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import LoginUser from '../components/users/fb_Loginuser';
 import COLORS from '../constants/colors';
 import Button from '../components/Button';
-import ValiUser from '../components/users/fb_Valiusers';
 const Login = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
@@ -25,10 +24,7 @@ const Login = ({ navigation }) => {
                     }}>Hello again you have been missed!</Text>
 
                 </View>
-
                 <LoginUser/>
-                <ValiUser/>
-
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 20 }}>
                     <View
                         style={{

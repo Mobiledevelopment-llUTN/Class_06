@@ -16,10 +16,9 @@ const LoginUser = () => {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         setEstado('User is signed in!');
-        console.log(estado);
         setEmail('');
         setPassword('');
-
+        login();
       })
       .catch(error => {
         if (error.code === 'auth/invalid-credential') {
@@ -109,7 +108,7 @@ const LoginUser = () => {
                         marginTop: 18,
                         marginBottom: 4,
                     }}
-                    onPress={() => {login (), autenticar}}
+                    onPress={(autenticar)}
                 />
     </View>
   );

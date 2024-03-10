@@ -9,16 +9,23 @@ import {AuthContext} from '../context/AuthContext';
 
 function AppNav () {
 const{isLoading, userToken} = useContext(AuthContext);
-
   if (isLoading){
     <View style={{flex: 1, justifyContent: 'center', alignItems:'center'}}>
     <ActivityIndicator size={'large'}/>
     </View>
   }
 
+  if(userToken !== null){
     return(
     <NavigationContainer>
-    {userToken !== null ? <AppStack/> : <AuthStack/>}
+        <AppStack/>
+    </NavigationContainer>
+    )
+  }
+
+    return(
+    <NavigationContainer>
+    <AuthStack/>
     </NavigationContainer>
     )
 }

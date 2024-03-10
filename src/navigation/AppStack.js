@@ -9,23 +9,22 @@ const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
     return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='Estudiantes'>
         <Stack.Screen
-          name="viewEstudiante"
+          name="Estudiantes"
           component={ViewEstudiante}
           options={{
             headerShown: false
           }}
         />
         <Stack.Screen
-          name="viewProfesor"
+          name="ViewProfesor"
           component={ViewProfesor}
           options={{
             headerShown: false
           }}
         />
       </Stack.Navigator>
-
     )
 }
 
