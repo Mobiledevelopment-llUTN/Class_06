@@ -11,7 +11,6 @@ export const AuthProvider = ({children}) => {
     setUserToken('N#r%$57');
     setIsLoading(false);
     setId(identifier);
-    console.log(identifier);
     }
 
     const logout = () => {

@@ -6,7 +6,6 @@ import Profesores from '../components/collections/profesores'
 const ViewProfesor= ({ navigation }) => {
     return (<SafeAreaView>
         <View>
-        <Text>View Profesor</Text>
         <Profesores/>
         <ValiUser/>
         </View>

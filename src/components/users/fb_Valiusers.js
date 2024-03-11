@@ -39,7 +39,7 @@ const ValiUser = props => {
 
   return (
     <View>
-      <Text>Welcome {user.uid}</Text>
+
     </View>
   );
 };
