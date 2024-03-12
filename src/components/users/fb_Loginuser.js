@@ -12,6 +12,10 @@ const LoginUser = () => {
   const [password, setPassword] = useState();
 
   const autenticar = async () => {
+  if(email == null && password == null){
+  console.log('No se permiten datos vacios')
+  }
+  else{
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
@@ -30,6 +34,7 @@ const LoginUser = () => {
           );
         }
       });
+      }
   };
 
   return (

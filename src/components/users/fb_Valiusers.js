@@ -7,17 +7,34 @@ const ValiUser = props => {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
-  const{login} = useContext(AuthContext);
+  const{makeUser, extractUid} = useContext(AuthContext);
   // Handle user state changes
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function onAuthStateChanged(user) {
     setUser(user);
-     login(user.uid);
+     extractUid(user.uid);
+     verificarDominio(user.email)
     if (initializing) {
       setInitializing(false);
     }
 
   }
+
+  function verificarDominio(correo) {
+  // Obtenemos el índice del caracter @
+  const indiceArroba = correo.indexOf("@");
+
+  // Si no hay arroba, la función devuelve un string vacío
+  if (indiceArroba === -1) {
+    return " ";
+  }
+
+  // Extraemos el dominio a partir del índice del caracter @
+  const dominio = correo.slice(indiceArroba + 1);
+  makeUser(dominio);
+  // Devolvemos el dominio
+  return dominio;
+}
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
