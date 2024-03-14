@@ -27,6 +27,7 @@ const MateriasReducer = (state = INITIAL_STATE, action) => {
                 materiasSeleccionadas:[...materiasSeleccionadas],
                 materiasDisponibles:[...materiasDisponibles, materia],
             };
+            return newState;
 
         default:
         return state;
