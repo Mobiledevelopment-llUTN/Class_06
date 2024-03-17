@@ -1,7 +1,9 @@
+import React, {useEffect, useState, useContext} from 'react';
 import { SELECCIONAR_MATERIA, RETIRAR_MATERIA} from '../actions/materiasActionType';
+import {AuthContext} from '/Users/sebastianmataortega/Desktop/reactProjects/class_06/src/context/AuthContext';
 
 const INITIAL_STATE = {
-    materiasDisponibles: ['Español', 'Matematicas', 'Ciencias', 'Ingles'],
+    materiasDisponibles: ['Diseño de Experiencia de Usuarios', 'Filosofía', 'Principios de Seguridad', 'Calculo y Álgebra Lineal l'],
     materiasSeleccionadas: [],
 };
 

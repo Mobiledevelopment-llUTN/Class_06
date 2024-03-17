@@ -8,7 +8,7 @@ import UserInfoStyles from '/Users/sebastianmataortega/Desktop/reactProjects/cla
 function Estudiantes({}){
   const [loading, setLoading] = useState(true); // Set loading to true on component mount
   const [estudiantes, setEstudiantes] = useState([]); // Initial empty array of users
-  const [ident, setIdent] = useState();
+  const [courses, setCourses] = useState([]);
   const{id} = useContext(AuthContext);
 
   useEffect(() => {
@@ -18,21 +18,39 @@ function Estudiantes({}){
       .onSnapshot(documentSnapshot => {
         setEstudiantes(documentSnapshot.data());
       });
-
+      setCourses(estudiantes.Cursos)
     // Unsubscribe from events when no longer in use
     return () => subscriber();
   }, [id]);
 
-  return(
-    <SafeAreaView>
-     <View style={UserInfoStyles.container}>
-        <Text styles={UserInfoStyles.idText}>ID:{estudiantes.idEstudiante}</Text>
-        <Text styles={UserInfoStyles.text}>Nombre:{estudiantes.Nombre}</Text>
-        <Text styles={UserInfoStyles.text}>Edad:{estudiantes.Edad}</Text>
-        <Text styles={UserInfoStyles.text}>Correo:{estudiantes.correo}</Text>
-        <Text styles={UserInfoStyles.text}>Rol:{estudiantes.rol}</Text>
-      </View>
-    </SafeAreaView>
-  )
+
+  if(courses === null){
+    return(
+        <SafeAreaView>
+         <View style={UserInfoStyles.container}>
+            <Text styles={UserInfoStyles.idText}>ID:{estudiantes.idEstudiante}</Text>
+            <Text styles={UserInfoStyles.text}>Nombre:{estudiantes.Nombre}</Text>
+            <Text styles={UserInfoStyles.text}>Edad:{estudiantes.Edad}</Text>
+            <Text styles={UserInfoStyles.text}>Correo:{estudiantes.correo}</Text>
+            <Text styles={UserInfoStyles.text}>Rol:{estudiantes.rol}</Text>
+          </View>
+          <Text>No hay cursos matriculados</Text>
+        </SafeAreaView>
+      )
+    }
+  else{
+       return(
+        <SafeAreaView>
+         <View style={UserInfoStyles.container}>
+            <Text styles={UserInfoStyles.idText}>ID:{estudiantes.idEstudiante}</Text>
+            <Text styles={UserInfoStyles.text}>Nombre:{estudiantes.Nombre}</Text>
+            <Text styles={UserInfoStyles.text}>Edad:{estudiantes.Edad}</Text>
+            <Text styles={UserInfoStyles.text}>Correo:{estudiantes.correo}</Text>
+            <Text styles={UserInfoStyles.text}>Rol:{estudiantes.rol}</Text>
+          </View>
+          <Text>Lista de cursos matriculados</Text>
+        </SafeAreaView>
+      )
+  }
 }
 export default Estudiantes;

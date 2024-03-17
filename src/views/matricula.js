@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import Button from '/Users/sebastianmataortega/Desktop/reactProjects/class_06/src/components/Button.js';
 import VmMateriasDisponibles from '../views/materiasDisponibles';
 import VmMateriasSeleccionadas from '../views/materiasSeleccionadas';
+import Cursos from '../components/collections/cursos'
 import ConfigureStore from '../components/Store';
 
 const Matricula = ({navigation}) => {
@@ -13,13 +14,24 @@ const Matricula = ({navigation}) => {
       <View>
         <VmMateriasDisponibles />
         <VmMateriasSeleccionadas />
-        <Button
-        title="Matricular"
-        filled
-        style={{
-            marginTop: 150,
-            marginBottom: 4,
-        }}/>
+        <Cursos/>
+            <View style={{marginTop: 400}}>
+                <Button
+                title="Matricular"
+                filled
+                style={{
+                    marginTop: 12,
+                    marginBottom: 4,
+                }}/>
+                <Button
+                title="Regresar"
+                filled
+                style={{
+                    marginTop: 12,
+                    marginBottom: 4,
+                }}
+                onPress={()=> navigation.navigate("Estudiantes")}/>
+            </View>
       </View>
     </Provider>
   );

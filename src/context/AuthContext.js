@@ -7,6 +7,7 @@ export const AuthProvider = ({children}) => {
     const [userToken, setUserToken] = useState(null);
     const [id, setId] = useState('');
     const [userEmail, setUserEmail] = useState('');
+    const [cursos, setCursos] = useState([]);
 
     const login = () => {
     setUserToken('N#r%$57');
@@ -15,6 +16,11 @@ export const AuthProvider = ({children}) => {
 
     const extractUid= (identifier) => {
         setId(identifier);
+    }
+
+    const extractCourses = (arrayOfCourses) =>{
+        setCursos(arrayOfCourses);
+        console.log(cursos.Nombre, "Authcontext");
     }
 
     const makeUser = (correo) =>{
@@ -26,7 +32,7 @@ export const AuthProvider = ({children}) => {
     setIsLoading(false);
     }
     return(
-        <AuthContext.Provider value={{login, logout, isLoading, userToken, id, userEmail, makeUser, extractUid}}>
+        <AuthContext.Provider value={{login, logout, isLoading, userToken, id, userEmail, makeUser, extractUid, extractCourses, cursos}}>
             {children}
         </AuthContext.Provider>
     )

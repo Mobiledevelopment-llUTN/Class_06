@@ -8,7 +8,6 @@ import Matricula from '../views/matricula';
 import TakePhoto from '../views/takePhoto';
 import MainView from '../views/mainView';
 const Stack = createNativeStackNavigator();
-
 const AppStack = () => {
     return (
     <Stack.Navigator initialRouteName='Main'>

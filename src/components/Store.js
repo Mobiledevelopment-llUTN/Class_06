@@ -1,9 +1,9 @@
 import {combineReducers, legacy_createStore} from 'redux';
-import materiasReducer from './reducers/materiasReducer';
+import MateriasReducer from './reducers/materiasReducer';
 
 const ConfigureStore = () => {
     const reducers = combineReducers({
-        materias: materiasReducer,
+        materias: MateriasReducer,
     });
     const store = legacy_createStore(reducers);
     return store;

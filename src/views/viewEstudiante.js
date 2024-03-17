@@ -17,31 +17,33 @@ const exit = () => {
 return (
     <SafeAreaView>
         <View>
-        <Button
-        title="Salir"
-        filled
-        style={{
-            marginTop: 150,
-            marginBottom: 4,
-        }}
-        onPress={exit}/>
-        <Estudiantes/>
-        <Button
-        title="Matricular Cursos"
-        filled
-        style={{
-            marginTop: 150,
-            marginBottom: 4,
-        }}
-        onPress={() => navigation.navigate("Matricula")}/>
-        <Button
-        title="Tomar Foto"
-        filled
-        style={{
-            marginTop: 150,
-            marginBottom: 4,
-        }}
-        onPress={() => navigation.navigate("Photo")}/>
+            <Estudiantes/>
+                <View style={{marginTop: 150}}>
+                    <Button
+                    title="Matricular Cursos"
+                    filled
+                    style={{
+                        marginTop: 12,
+                        marginBottom: 4,
+                    }}
+                    onPress={() => navigation.navigate("Matricula")}/>
+                    <Button
+                    title="Tomar Foto"
+                    filled
+                    style={{
+                        marginTop: 12,
+                        marginBottom: 4,
+                    }}
+                    onPress={() => navigation.navigate("Photo")}/>
+                    <Button
+                    title="Salir"
+                    filled
+                    style={{
+                        marginTop: 12,
+                        marginBottom: 4,
+                    }}
+                    onPress={exit}/>
+                </View>
         </View>
     </SafeAreaView>)
 };
